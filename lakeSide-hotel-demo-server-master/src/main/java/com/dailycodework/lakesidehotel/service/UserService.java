@@ -14,10 +14,6 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author Simpson Alfred
- */
-
 @Service
 @RequiredArgsConstructor
 public class UserService implements IUserService {
@@ -27,7 +23,7 @@ public class UserService implements IUserService {
 
     @Override
     public User registerUser(User user) {
-        if (userRepository.existsByEmail(user.getEmail())){
+        if (userRepository.existsByEmail(user.getEmail())) {
             throw new UserAlreadyExistsException(user.getEmail() + " already exists");
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -46,7 +42,7 @@ public class UserService implements IUserService {
     @Override
     public void deleteUser(String email) {
         User theUser = getUser(email);
-        if (theUser != null){
+        if (theUser != null) {
             userRepository.deleteByEmail(email);
         }
 

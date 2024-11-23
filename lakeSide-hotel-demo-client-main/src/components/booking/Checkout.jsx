@@ -45,7 +45,7 @@ const Checkout = () => {
 				<div className="row">
 					<div className="col-md-4 mt-5 mb-5">
 						{isLoading ? (
-							<p>Loading room information...</p>
+							<p>Cargando...</p>
 						) : error ? (
 							<p>{error}</p>
 						) : (
@@ -58,15 +58,15 @@ const Checkout = () => {
 								<table className="table table-bordered">
 									<tbody>
 										<tr>
-											<th>Room Type:</th>
+											<th>Tipo:</th>
 											<td>{roomInfo.roomType}</td>
 										</tr>
 										<tr>
-											<th>Price per night:</th>
+											<th>Precio por noche:</th>
 											<td>${roomInfo.roomPrice}</td>
 										</tr>
 										<tr>
-											<th>Room Service:</th>
+											<th>Servicios:</th>
 											<td>
 												<ul className="list-unstyled">
 													<li>
@@ -76,19 +76,19 @@ const Checkout = () => {
 														<FaTv /> Netfilx Premium
 													</li>
 													<li>
-														<FaUtensils /> Breakfast
+														<FaUtensils /> Desayuno
 													</li>
 													<li>
-														<FaWineGlassAlt /> Mini bar refreshment
+														<FaWineGlassAlt /> Mini bar
 													</li>
 													<li>
-														<FaCar /> Car Service
+														<FaCar /> Transporte
 													</li>
 													<li>
-														<FaParking /> Parking Space
+														<FaParking /> Estacionamiento
 													</li>
 													<li>
-														<FaTshirt /> Laundry
+														<FaTshirt /> Lavanderia
 													</li>
 												</ul>
 											</td>

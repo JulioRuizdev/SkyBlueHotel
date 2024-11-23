@@ -64,7 +64,7 @@ const FindBooking = () => {
 		try {
 			await cancelBooking(bookingInfo.id)
 			setIsDeleted(true)
-			setSuccessMessage("Booking has been cancelled successfully!")
+			setSuccessMessage("Reserva cancelada!")
 			setBookingInfo(emptyBookingInfo)
 			setConfirmationCode("")
 			setError(null)
@@ -80,7 +80,7 @@ const FindBooking = () => {
 	return (
 		<>
 			<div className="container mt-5 d-flex flex-column justify-content-center align-items-center">
-				<h2 className="text-center mb-4">Find My Booking</h2>
+				<h2 className="text-center mb-4">Encontrar mi reserva</h2>
 				<form onSubmit={handleFormSubmit} className="col-md-6">
 					<div className="input-group mb-3">
 						<input
@@ -90,49 +90,49 @@ const FindBooking = () => {
 							name="confirmationCode"
 							value={confirmationCode}
 							onChange={handleInputChange}
-							placeholder="Enter the booking confirmation code"
+							placeholder="Ingresar el codigo de confirmación"
 						/>
 
 						<button type="submit" className="btn btn-hotel input-group-text">
-							Find booking
+							Encontrar reserva
 						</button>
 					</div>
 				</form>
 
 				{isLoading ? (
-					<div>Finding your booking...</div>
+					<div>Buscando...</div>
 				) : error ? (
 					<div className="text-danger">Error: {error}</div>
 				) : bookingInfo.bookingConfirmationCode ? (
 					<div className="col-md-6 mt-4 mb-5">
-						<h3>Booking Information</h3>
-						<p className="text-success">Confirmation Code: {bookingInfo.bookingConfirmationCode}</p>
-						<p>Room Number: {bookingInfo.room.id}</p>
-						<p>Room Type: {bookingInfo.room.roomType}</p>
+						<h3>Informacion de reserva</h3>
+						<p className="text-success">Codigo: {bookingInfo.bookingConfirmationCode}</p>
+						<p>Numero de Cuarto: {bookingInfo.room.id}</p>
+						<p>Tipo: {bookingInfo.room.roomType}</p>
 						<p>
-							Check-in Date:{" "}
+							Check-in :{" "}
 							{moment(bookingInfo.checkInDate).subtract(1, "month").format("MMM Do, YYYY")}
 						</p>
 						<p>
-							Check-out Date:{" "}
+							Check-out :{" "}
 							{moment(bookingInfo.checkInDate).subtract(1, "month").format("MMM Do, YYYY")}
 						</p>
-						<p>Full Name: {bookingInfo.guestName}</p>
-						<p>Email Address: {bookingInfo.guestEmail}</p>
-						<p>Adults: {bookingInfo.numOfAdults}</p>
-						<p>Children: {bookingInfo.numOfChildren}</p>
-						<p>Total Guest: {bookingInfo.totalNumOfGuests}</p>
+						<p>Nombre Completo: {bookingInfo.guestName}</p>
+						<p>Correo: {bookingInfo.guestEmail}</p>
+						<p>Adultos: {bookingInfo.numOfAdults}</p>
+						<p>Niños: {bookingInfo.numOfChildren}</p>
+						<p>Hospedados: {bookingInfo.totalNumOfGuests}</p>
 
 						{!isDeleted && (
 							<button
 								onClick={() => handleBookingCancellation(bookingInfo.id)}
 								className="btn btn-danger">
-								Cancel Booking
+								Cancelar Reserva
 							</button>
 						)}
 					</div>
 				) : (
-					<div>find booking...</div>
+					<div>Buscando Reserva...</div>
 				)}
 
 				{isDeleted && <div className="alert alert-success mt-3 fade show">{successMessage}</div>}

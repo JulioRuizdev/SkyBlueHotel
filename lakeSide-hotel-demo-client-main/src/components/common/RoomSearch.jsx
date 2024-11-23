@@ -21,11 +21,11 @@ const RoomSearch = () => {
 		const checkInMoment = moment(searchQuery.checkInDate)
 		const checkOutMoment = moment(searchQuery.checkOutDate)
 		if (!checkInMoment.isValid() || !checkOutMoment.isValid()) {
-			setErrorMessage("Please enter valid dates")
+			setErrorMessage("Ingresa fechas validas")
 			return
 		}
 		if (!checkOutMoment.isSameOrAfter(checkInMoment)) {
-			setErrorMessage("Check-out date must be after check-in date")
+			setErrorMessage("La fecha de salida debe ser posterior a la fecha de entrada")
 			return
 		}
 		setIsLoading(true)
@@ -67,7 +67,7 @@ const RoomSearch = () => {
 					<Row className="justify-content-center">
 						<Col xs={12} md={3}>
 							<Form.Group controlId="checkInDate">
-								<Form.Label>Check-in Date</Form.Label>
+								<Form.Label>Check-in</Form.Label>
 								<Form.Control
 									type="date"
 									name="checkInDate"
@@ -79,7 +79,7 @@ const RoomSearch = () => {
 						</Col>
 						<Col xs={12} md={3}>
 							<Form.Group controlId="checkOutDate">
-								<Form.Label>Check-out Date</Form.Label>
+								<Form.Label>Check-out</Form.Label>
 								<Form.Control
 									type="date"
 									name="checkOutDate"
@@ -91,14 +91,14 @@ const RoomSearch = () => {
 						</Col>
 						<Col xs={12} md={3}>
 							<Form.Group controlId="roomType">
-								<Form.Label>Room Type</Form.Label>
+								<Form.Label>Tipo de Habitacion</Form.Label>
 								<div className="d-flex">
 									<RoomTypeSelector
 										handleRoomInputChange={handleInputChange}
 										newRoom={searchQuery}
 									/>
 									<Button variant="secondary" type="submit" className="ml-2">
-										Search
+										Buscar
 									</Button>
 								</div>
 							</Form.Group>
@@ -107,11 +107,11 @@ const RoomSearch = () => {
 				</Form>
 
 				{isLoading ? (
-					<p className="mt-4">Finding availble rooms....</p>
+					<p className="mt-4">Buscando habitaciones disponibles....</p>
 				) : availableRooms ? (
 					<RoomSearchResults results={availableRooms} onClearSearch={handleClearSearch} />
 				) : (
-					<p className="mt-4">No rooms available for the selected dates and room type.</p>
+					<p className="mt-4">No hay cuartos disponibles.</p>
 				)}
 				{errorMessage && <p className="text-danger">{errorMessage}</p>}
 			</Container>

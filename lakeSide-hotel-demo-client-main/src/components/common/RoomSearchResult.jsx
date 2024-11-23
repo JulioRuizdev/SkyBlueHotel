@@ -21,7 +21,7 @@ const RoomSearchResults = ({ results, onClearSearch }) => {
 		<>
 			{results.length > 0 ? (
 				<>
-					<h5 className="text-center mt-5">Search Results</h5>
+					<h5 className="text-center mt-5">Resultados de Busqueda</h5>
 					<Row>
 						{paginatedResults.map((room) => (
 							<RoomCard key={room.id} room={room} />
@@ -36,7 +36,7 @@ const RoomSearchResults = ({ results, onClearSearch }) => {
 							/>
 						)}
 						<Button variant="secondary" onClick={onClearSearch}>
-							Clear Search
+							Limpiar Filtro
 						</Button>
 					</Row>
 				</>

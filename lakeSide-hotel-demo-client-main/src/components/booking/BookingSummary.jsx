@@ -30,37 +30,37 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
 		<div className="row">
 			<div className="col-md-6"></div>
 			<div className="card card-body mt-5">
-				<h4 className="card-title hotel-color">Reservation Summary</h4>
+				<h4 className="card-title hotel-color">Resumen de Reserva</h4>
 				<p>
-					Name: <strong>{booking.guestFullName}</strong>
+					Nombre: <strong>{booking.guestFullName}</strong>
 				</p>
 				<p>
-					Email: <strong>{booking.guestEmail}</strong>
+					Correo Electrónico: <strong>{booking.guestEmail}</strong>
 				</p>
 				<p>
-					Check-in Date: <strong>{moment(booking.checkInDate).format("MMM Do YYYY")}</strong>
+					Check-in: <strong>{moment(booking.checkInDate).format("MMM Do YYYY")}</strong>
 				</p>
 				<p>
-					Check-out Date: <strong>{moment(booking.checkOutDate).format("MMM Do YYYY")}</strong>
+					Check-out: <strong>{moment(booking.checkOutDate).format("MMM Do YYYY")}</strong>
 				</p>
 				<p>
-					Number of Days Booked: <strong>{numberOfDays}</strong>
+					Numero de dias reservados: <strong>{numberOfDays}</strong>
 				</p>
 
 				<div>
-					<h5 className="hotel-color">Number of Guest</h5>
+					<h5 className="hotel-color">Numero de huespedes</h5>
 					<strong>
-						Adult{booking.numOfAdults > 1 ? "s" : ""} : {booking.numOfAdults}
+						Adultos{booking.numOfAdults > 1 ? "s" : ""} : {booking.numOfAdults}
 					</strong>
 					<strong>
-						<p>Children : {booking.numOfChildren}</p>
+						<p>Niños : {booking.numOfChildren}</p>
 					</strong>
 				</div>
 
 				{payment > 0 ? (
 					<>
 						<p>
-							Total payment: <strong>${payment}</strong>
+							Pago Total: <strong>${payment}</strong>
 						</p>
 
 						{isFormValid && !isBookingConfirmed ? (
@@ -71,7 +71,7 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
 											className="spinner-border spinner-border-sm mr-2"
 											role="status"
 											aria-hidden="true"></span>
-										Booking Confirmed, redirecting to payment...
+										Reserva confirmada, redirigiendo al pago.
 									</>
 								) : (
 									"Confirm Booking & proceed to payment"
@@ -80,13 +80,13 @@ const BookingSummary = ({ booking, payment, isFormValid, onConfirm }) => {
 						) : isBookingConfirmed ? (
 							<div className="d-flex justify-content-center align-items-center">
 								<div className="spinner-border text-primary" role="status">
-									<span className="sr-only">Loading...</span>
+									<span className="sr-only">Cargando...</span>
 								</div>
 							</div>
 						) : null}
 					</>
 				) : (
-					<p className="text-danger">Check-out date must be after check-in date.</p>
+					<p className="text-danger">El Check out debe ser despues del Check in.</p>
 				)}
 			</div>
 		</div>

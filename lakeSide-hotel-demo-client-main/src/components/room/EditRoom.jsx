@@ -45,13 +45,13 @@ const EditRoom = () => {
 		try {
 			const response = await updateRoom(roomId, room)
 			if (response.status === 200) {
-				setSuccessMessage("Room updated successfully!")
+				setSuccessMessage("Habitacion editada exitosamente!")
 				const updatedRoomData = await getRoomById(roomId)
 				setRoom(updatedRoomData)
 				setImagePreview(updatedRoomData.photo)
 				setErrorMessage("")
 			} else {
-				setErrorMessage("Error updating room")
+				setErrorMessage("Error al actualizar")
 			}
 		} catch (error) {
 			console.error(error)
@@ -61,7 +61,7 @@ const EditRoom = () => {
 
 	return (
 		<div className="container mt-5 mb-5">
-			<h3 className="text-center mb-5 mt-5">Edit Room</h3>
+			<h3 className="text-center mb-5 mt-5">Editar Habitacion</h3>
 			<div className="row justify-content-center">
 				<div className="col-md-8 col-lg-6">
 					{successMessage && (
@@ -77,7 +77,7 @@ const EditRoom = () => {
 					<form onSubmit={handleSubmit}>
 						<div className="mb-3">
 							<label htmlFor="roomType" className="form-label hotel-color">
-								Room Type
+								Tipo
 							</label>
 							<input
 								type="text"
@@ -90,7 +90,7 @@ const EditRoom = () => {
 						</div>
 						<div className="mb-3">
 							<label htmlFor="roomPrice" className="form-label hotel-color">
-								Room Price
+								Precio
 							</label>
 							<input
 								type="number"
@@ -104,7 +104,7 @@ const EditRoom = () => {
 
 						<div className="mb-3">
 							<label htmlFor="photo" className="form-label hotel-color">
-								Photo
+								Imagen
 							</label>
 							<input
 								required
@@ -125,10 +125,10 @@ const EditRoom = () => {
 						</div>
 						<div className="d-grid gap-2 d-md-flex mt-2">
 							<Link to={"/existing-rooms"} className="btn btn-outline-info ml-5">
-								back
+								Atras
 							</Link>
 							<button type="submit" className="btn btn-outline-warning">
-								Edit Room
+								Editar
 							</button>
 						</div>
 					</form>

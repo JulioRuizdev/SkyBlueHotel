@@ -40,8 +40,8 @@ const RoomTypeSelector = ({ handleRoomInputChange, newRoom }) => {
 							}
 						}}
 						value={newRoom.roomType}>
-						<option value="">Select a room type</option>
-						<option value={"Add New"}>Add New</option>
+						<option value="">Selecciona el tipo de habitacion</option>
+						<option value={"Add New"}>Añadir nuevo tipo de habitacion</option>
 						{roomTypes.map((type, index) => (
 							<option key={index} value={type}>
 								{type}
@@ -59,7 +59,7 @@ const RoomTypeSelector = ({ handleRoomInputChange, newRoom }) => {
 									onChange={handleNewRoomTypeInputChange}
 								/>
 								<button className="btn btn-hotel" type="button" onClick={handleAddNewRoomType}>
-									Add
+									Añadir
 								</button>
 							</div>
 						</div>

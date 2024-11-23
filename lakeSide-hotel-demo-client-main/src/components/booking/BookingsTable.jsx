@@ -29,19 +29,19 @@ const BookingsTable = ({ bookingInfo, handleBookingCancellation }) => {
 			<table className="table table-bordered table-hover shadow">
 				<thead>
 					<tr>
-						<th>S/N</th>
-						<th>Booking ID</th>
-						<th>Room ID</th>
-						<th>Room Type</th>
-						<th>Check-In Date</th>
-						<th>Check-Out Date</th>
-						<th>Guest Name</th>
-						<th>Guest Email</th>
-						<th>Adults</th>
-						<th>Children</th>
-						<th>Total Guest</th>
-						<th>Confirmation Code</th>
-						<th colSpan={2}>Actions</th>
+						<th>N°</th>
+						<th>ID de Reserva</th>
+						<th>ID de Habitación</th>
+						<th>Tipo de Habitación</th>
+						<th>Fecha de Check-In</th>
+						<th>Fecha de Check-Out</th>
+						<th>Nombre del Huésped</th>
+						<th>Email del Huésped</th>
+						<th>Adultos</th>
+						<th>Niños</th>
+						<th>Total de Huéspedes</th>
+						<th>Código de Confirmación</th>
+						<th colSpan={2}>Acciones</th>
 					</tr>
 				</thead>
 				<tbody className="text-center">
@@ -63,14 +63,14 @@ const BookingsTable = ({ bookingInfo, handleBookingCancellation }) => {
 								<button
 									className="btn btn-danger btn-sm"
 									onClick={() => handleBookingCancellation(booking.id)}>
-									Cancel
+									Cancelar
 								</button>
 							</td>
 						</tr>
 					))}
 				</tbody>
 			</table>
-			{filterBooknigs.length === 0 && <p> No booking found for the selected dates</p>}
+			{filteredBookings.length === 0 && <p>No se encontraron reservas para las fechas seleccionadas</p>}
 		</section>
 	)
 }

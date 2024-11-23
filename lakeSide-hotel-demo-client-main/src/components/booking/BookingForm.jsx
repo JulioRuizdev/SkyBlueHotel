@@ -101,7 +101,7 @@ const currentUser = localStorage.getItem("userId")
 				<div className="row">
 					<div className="col-md-6">
 						<div className="card card-body mt-5">
-							<h4 className="card-title">Reservacion de habitacion</h4>
+							<h4 className="card-title">Reservación de habitación</h4>
 
 							<Form noValidate validated={validated} onSubmit={handleSubmit}>
 								<Form.Group>
@@ -114,17 +114,17 @@ const currentUser = localStorage.getItem("userId")
 										id="guestFullName"
 										name="guestFullName"
 										value={booking.guestFullName}
-										placeholder="Enter your fullname"
+										placeholder="Ingrese su nombre completo"
 										onChange={handleInputChange}
 									/>
 									<Form.Control.Feedback type="invalid">
-										Ingresar nombre completo
+										Ingrese nombre completo
 									</Form.Control.Feedback>
 								</Form.Group>
 
 								<Form.Group>
 									<Form.Label htmlFor="guestEmail" className="hotel-color">
-										Email
+										Correo electrónico
 									</Form.Label>
 									<FormControl
 										required
@@ -132,21 +132,21 @@ const currentUser = localStorage.getItem("userId")
 										id="guestEmail"
 										name="guestEmail"
 										value={booking.guestEmail}
-										placeholder="Enter your email"
+										placeholder="Ingrese su correo electrónico"
 										onChange={handleInputChange}
 										disabled
 									/>
 									<Form.Control.Feedback type="invalid">
-										Please enter a valid email address.
+										Ingrese un correo válido
 									</Form.Control.Feedback>
 								</Form.Group>
 
 								<fieldset style={{ border: "2px" }}>
-									<legend>Lodging Period</legend>
+									<legend>Periodo de alojamiento</legend>
 									<div className="row">
 										<div className="col-6">
 											<Form.Label htmlFor="checkInDate" className="hotel-color">
-												Check-in date
+												Fecha de entrada
 											</Form.Label>
 											<FormControl
 												required
@@ -154,18 +154,18 @@ const currentUser = localStorage.getItem("userId")
 												id="checkInDate"
 												name="checkInDate"
 												value={booking.checkInDate}
-												placeholder="check-in-date"
-												min={moment().format("MMM Do, YYYY")}
+												placeholder="Fecha de entrada"
+												min={moment().format("YYYY-MM-DD")}
 												onChange={handleInputChange}
 											/>
 											<Form.Control.Feedback type="invalid">
-												Please select a check in date.
+												Seleccione una fecha de entrada.
 											</Form.Control.Feedback>
 										</div>
 
 										<div className="col-6">
 											<Form.Label htmlFor="checkOutDate" className="hotel-color">
-												Check-out date
+												Fecha de salida
 											</Form.Label>
 											<FormControl
 												required
@@ -173,12 +173,12 @@ const currentUser = localStorage.getItem("userId")
 												id="checkOutDate"
 												name="checkOutDate"
 												value={booking.checkOutDate}
-												placeholder="check-out-date"
-												min={moment().format("MMM Do, YYYY")}
+												placeholder="Fecha de salida"
+												min={moment().format("YYYY-MM-DD")}
 												onChange={handleInputChange}
 											/>
 											<Form.Control.Feedback type="invalid">
-												Please select a check out date.
+												Seleccione una fecha de salida.
 											</Form.Control.Feedback>
 										</div>
 										{errorMessage && <p className="error-message text-danger">{errorMessage}</p>}
@@ -186,11 +186,11 @@ const currentUser = localStorage.getItem("userId")
 								</fieldset>
 
 								<fieldset style={{ border: "2px" }}>
-									<legend>Number of Guest</legend>
+									<legend>Número de huéspedes</legend>
 									<div className="row">
 										<div className="col-6">
 											<Form.Label htmlFor="numOfAdults" className="hotel-color">
-												Adults
+												Adultos
 											</Form.Label>
 											<FormControl
 												required
@@ -203,12 +203,12 @@ const currentUser = localStorage.getItem("userId")
 												onChange={handleInputChange}
 											/>
 											<Form.Control.Feedback type="invalid">
-												Please select at least 1 adult.
+												Seleccione al menos 1 adulto.
 											</Form.Control.Feedback>
 										</div>
 										<div className="col-6">
 											<Form.Label htmlFor="numOfChildren" className="hotel-color">
-												Children
+												Niños
 											</Form.Label>
 											<FormControl
 												required
@@ -221,7 +221,7 @@ const currentUser = localStorage.getItem("userId")
 												onChange={handleInputChange}
 											/>
 											<Form.Control.Feedback type="invalid">
-												Select 0 if no children
+												Seleccione 0 si no hay niños
 											</Form.Control.Feedback>
 										</div>
 									</div>
@@ -229,7 +229,7 @@ const currentUser = localStorage.getItem("userId")
 
 								<div className="fom-group mt-2 mb-2">
 									<button type="submit" className="btn btn-hotel">
-										Continue
+										Continuar
 									</button>
 								</div>
 							</Form>

@@ -69,7 +69,7 @@ const AddRoom = () => {
 						<form onSubmit={handleSubmit}>
 							<div className="mb-3">
 								<label htmlFor="roomType" className="form-label">
-									Room Type
+									Tipo de Habitacion
 								</label>
 								<div>
 									<RoomTypeSelector
@@ -80,7 +80,7 @@ const AddRoom = () => {
 							</div>
 							<div className="mb-3">
 								<label htmlFor="roomPrice" className="form-label">
-									Room Price
+									Precio de la habitacion
 								</label>
 								<input
 									required
@@ -95,7 +95,7 @@ const AddRoom = () => {
 
 							<div className="mb-3">
 								<label htmlFor="photo" className="form-label">
-									Room Photo
+									Imagen
 								</label>
 								<input
 									required
@@ -115,10 +115,10 @@ const AddRoom = () => {
 							</div>
 							<div className="d-grid gap-2 d-md-flex mt-2">
 								<Link to={"/existing-rooms"} className="btn btn-outline-info">
-									Existing rooms
+									Habitaciones Existentes
 								</Link>
 								<button type="submit" className="btn btn-outline-primary ml-5">
-									Save Room
+									Guardar Habitacion
 								</button>
 							</div>
 						</form>
