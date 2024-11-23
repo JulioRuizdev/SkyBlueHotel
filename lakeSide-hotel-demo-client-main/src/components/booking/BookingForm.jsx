@@ -64,7 +64,7 @@ const currentUser = localStorage.getItem("userId")
 
 	const isCheckOutDateValid = () => {
 		if (!moment(booking.checkOutDate).isSameOrAfter(moment(booking.checkInDate))) {
-			setErrorMessage("Check-out date must be after check-in date")
+			setErrorMessage("La fecha de salida debe ser posterior a la fecha de entrada")
 			return false
 		} else {
 			setErrorMessage("")
@@ -101,12 +101,12 @@ const currentUser = localStorage.getItem("userId")
 				<div className="row">
 					<div className="col-md-6">
 						<div className="card card-body mt-5">
-							<h4 className="card-title">Reserve Room</h4>
+							<h4 className="card-title">Reservacion de habitacion</h4>
 
 							<Form noValidate validated={validated} onSubmit={handleSubmit}>
 								<Form.Group>
 									<Form.Label htmlFor="guestFullName" className="hotel-color">
-										Fullname
+										Nombre completo
 									</Form.Label>
 									<FormControl
 										required
@@ -118,7 +118,7 @@ const currentUser = localStorage.getItem("userId")
 										onChange={handleInputChange}
 									/>
 									<Form.Control.Feedback type="invalid">
-										Please enter your fullname.
+										Ingresar nombre completo
 									</Form.Control.Feedback>
 								</Form.Group>
 

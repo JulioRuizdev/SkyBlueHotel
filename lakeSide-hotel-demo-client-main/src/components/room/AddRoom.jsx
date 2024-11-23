@@ -38,12 +38,12 @@ const AddRoom = () => {
 		try {
 			const success = await addRoom(newRoom.photo, newRoom.roomType, newRoom.roomPrice)
 			if (success !== undefined) {
-				setSuccessMessage("A new room was  added successfully !")
+				setSuccessMessage("Nuevo cuarto añadido con éxito !")
 				setNewRoom({ photo: null, roomType: "", roomPrice: "" })
 				setImagePreview("")
 				setErrorMessage("")
 			} else {
-				setErrorMessage("Error adding new room")
+				setErrorMessage("Error al añadir cuarto")
 			}
 		} catch (error) {
 			setErrorMessage(error.message)
@@ -59,7 +59,7 @@ const AddRoom = () => {
 			<section className="container mt-5 mb-5">
 				<div className="row justify-content-center">
 					<div className="col-md-8 col-lg-6">
-						<h2 className="mt-5 mb-2">Add a New Room</h2>
+						<h2 className="mt-5 mb-2">Añadir nuevo cuarto</h2>
 						{successMessage && (
 							<div className="alert alert-success fade show"> {successMessage}</div>
 						)}

@@ -39,11 +39,11 @@ const Registration = () => {
 			{errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
 			{successMessage && <p className="alert alert-success">{successMessage}</p>}
 
-			<h2>Register</h2>
+			<h2>Registrar</h2>
 			<form onSubmit={handleRegistration}>
 				<div className="mb-3 row">
 					<label htmlFor="firstName" className="col-sm-2 col-form-label">
-						first Name
+						Nombres
 					</label>
 					<div className="col-sm-10">
 						<input
@@ -59,7 +59,7 @@ const Registration = () => {
 
 				<div className="mb-3 row">
 					<label htmlFor="lastName" className="col-sm-2 col-form-label">
-						Last Name
+						Apellidos
 					</label>
 					<div className="col-sm-10">
 						<input
@@ -75,7 +75,7 @@ const Registration = () => {
 
 				<div className="mb-3 row">
 					<label htmlFor="email" className="col-sm-2 col-form-label">
-						Email
+						Correo
 					</label>
 					<div className="col-sm-10">
 						<input
@@ -91,7 +91,7 @@ const Registration = () => {
 
 				<div className="mb-3 row">
 					<label htmlFor="password" className="col-sm-2 col-form-label">
-						Password
+						Contraseña
 					</label>
 					<div className="col-sm-10">
 						<input
@@ -106,10 +106,10 @@ const Registration = () => {
 				</div>
 				<div className="mb-3">
 					<button type="submit" className="btn btn-hotel" style={{ marginRight: "10px" }}>
-						Register
+						Registrar
 					</button>
 					<span style={{ marginLeft: "10px" }}>
-						Already have an account? <Link to={"/login"}>Login</Link>
+						Ya tienes una cuenta? <Link to={"/login"}>Ingresa</Link>
 					</span>
 				</div>
 			</form>

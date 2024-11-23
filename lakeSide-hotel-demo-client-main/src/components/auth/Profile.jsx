@@ -57,7 +57,7 @@ const Profile = () => {
 
 	const handleDeleteAccount = async () => {
 		const confirmed = window.confirm(
-			"Are you sure you want to delete your account? This action cannot be undone."
+			"Esta seguro de eliminar su cuenta."
 		)
 		if (confirmed) {
 			await deleteUser(userId)
@@ -81,7 +81,7 @@ const Profile = () => {
 			{message && <p className="text-danger">{message}</p>}
 			{user ? (
 				<div className="card p-5 mt-5" style={{ backgroundColor: "whitesmoke" }}>
-					<h4 className="card-title text-center">User Information</h4>
+					<h4 className="card-title text-center">Informacion del Usuario</h4>
 					<div className="card-body">
 						<div className="col-md-10 mx-auto">
 							<div className="card mb-3 shadow">
@@ -108,7 +108,7 @@ const Profile = () => {
 											<hr />
 
 											<div className="form-group row">
-												<label className="col-md-2 col-form-label fw-bold">First Name:</label>
+												<label className="col-md-2 col-form-label fw-bold">Nombre:</label>
 												<div className="col-md-10">
 													<p className="card-text">{user.firstName}</p>
 												</div>
@@ -116,7 +116,7 @@ const Profile = () => {
 											<hr />
 
 											<div className="form-group row">
-												<label className="col-md-2 col-form-label fw-bold">Last Name:</label>
+												<label className="col-md-2 col-form-label fw-bold">Apellido:</label>
 												<div className="col-md-10">
 													<p className="card-text">{user.lastName}</p>
 												</div>
@@ -124,7 +124,7 @@ const Profile = () => {
 											<hr />
 
 											<div className="form-group row">
-												<label className="col-md-2 col-form-label fw-bold">Email:</label>
+												<label className="col-md-2 col-form-label fw-bold">Correo Electrónico:</label>
 												<div className="col-md-10">
 													<p className="card-text">{user.email}</p>
 												</div>
@@ -148,19 +148,19 @@ const Profile = () => {
 								</div>
 							</div>
 
-							<h4 className="card-title text-center">Booking History</h4>
+							<h4 className="card-title text-center">Historial de Reservas</h4>
 
 							{bookings.length > 0 ? (
 								<table className="table table-bordered table-hover shadow">
 									<thead>
 										<tr>
-											<th scope="col">Booking ID</th>
-											<th scope="col">Room ID</th>
-											<th scope="col">Room Type</th>
-											<th scope="col">Check In Date</th>
-											<th scope="col">Check Out Date</th>
-											<th scope="col">Confirmation Code</th>
-											<th scope="col">Status</th>
+											<th scope="col">ID de Reserva</th>
+											<th scope="col">ID de Habitación</th>
+											<th scope="col">Tipo de Habitación</th>
+											<th scope="col">Fecha de Entrada</th>
+											<th scope="col">Fecha de Salida</th>
+											<th scope="col">Código de Confirmación</th>
+											<th scope="col">Estado</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -178,19 +178,19 @@ const Profile = () => {
 														.format("MMM Do, YYYY")}
 												</td>
 												<td>{booking.bookingConfirmationCode}</td>
-												<td className="text-success">On-going</td>
+												<td className="text-success">En curso</td>
 											</tr>
 										))}
 									</tbody>
 								</table>
 							) : (
-								<p>You have not made any bookings yet.</p>
+								<p>No tienes reservas.</p>
 							)}
 
 							<div className="d-flex justify-content-center">
 								<div className="mx-2">
 									<button className="btn btn-danger btn-sm" onClick={handleDeleteAccount}>
-										Close account
+										Cerrar Cuenta
 									</button>
 								</div>
 							</div>
@@ -198,7 +198,7 @@ const Profile = () => {
 					</div>
 				</div>
 			) : (
-				<p>Loading user data...</p>
+				<p>Cargando datos...</p>
 			)}
 		</div>
 	)

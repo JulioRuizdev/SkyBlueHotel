@@ -8,21 +8,21 @@ const Logout = () => {
 
 	const handleLogout = () => {
 		auth.handleLogout()
-		navigate("/", { state: { message: " You have been logged out!" } })
+		navigate("/", { state: { message: " Saliste de tu cuenta!" } })
 	}
 
 	return (
 		<>
 			<li>
 				<Link className="dropdown-item" to={"/profile"}>
-					Profile
+					Perfil
 				</Link>
 			</li>
 			<li>
 				<hr className="dropdown-divider" />
 			</li>
 			<button className="dropdown-item" onClick={handleLogout}>
-				Logout
+				Salir
 			</button>
 		</>
 	)

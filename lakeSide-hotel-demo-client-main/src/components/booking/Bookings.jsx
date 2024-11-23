@@ -37,7 +37,7 @@ const Bookings = () => {
 			<Header title={"Existing Bookings"} />
 			{error && <div className="text-danger">{error}</div>}
 			{isLoading ? (
-				<div>Loading existing bookings</div>
+				<div>Cargando...</div>
 			) : (
 				<BookingsTable
 					bookingInfo={bookingInfo}

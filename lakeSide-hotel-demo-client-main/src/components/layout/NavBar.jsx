@@ -17,7 +17,7 @@ const NavBar = () => {
 		<nav className="navbar navbar-expand-lg bg-body-tertiary px-5 shadow mt-5 sticky-top">
 			<div className="container-fluid">
 				<Link to={"/"} className="navbar-brand">
-					<span className="hotel-color">lakeSide Hotel</span>
+					<span className="hotel-color">Hotel SkyBlue</span>
 				</Link>
 
 				<button
@@ -35,7 +35,7 @@ const NavBar = () => {
 					<ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
 						<li className="nav-item">
 							<NavLink className="nav-link" aria-current="page" to={"/browse-all-rooms"}>
-								Browse all rooms
+								Buscar habitaciones
 							</NavLink>
 						</li>
 
@@ -51,7 +51,7 @@ const NavBar = () => {
 					<ul className="d-flex navbar-nav">
 						<li className="nav-item">
 							<NavLink className="nav-link" to={"/find-booking"}>
-								Find my booking
+								Encontrar mi habitación
 							</NavLink>
 						</li>
 
@@ -64,7 +64,7 @@ const NavBar = () => {
 								aria-expanded="false"
 								onClick={handleAccountClick}>
 								{" "}
-								Account
+								Cuenta
 							</a>
 
 							<ul
@@ -75,7 +75,7 @@ const NavBar = () => {
 								) : (
 									<li>
 										<Link className="dropdown-item" to={"/login"}>
-											Login
+											Ingresar
 										</Link>
 									</li>
 								)}

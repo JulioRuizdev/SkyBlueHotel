@@ -27,7 +27,7 @@ const Login = () => {
 			auth.handleLogin(token)
 			navigate(redirectUrl, { replace: true })
 		} else {
-			setErrorMessage("Invalid username or password. Please try again.")
+			setErrorMessage("Usuario o contraseña incorrectos. Por favor, inténtelo de nuevo.")
 		}
 		setTimeout(() => {
 			setErrorMessage("")
@@ -37,7 +37,7 @@ const Login = () => {
 	return (
 		<section className="container col-6 mt-5 mb-5">
 			{errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
-			<h2>Login</h2>
+			<h2>Iniciar Sesión</h2>
 			<form onSubmit={handleSubmit}>
 				<div className="row mb-3">
 					<label htmlFor="email" className="col-sm-2 col-form-label">
@@ -57,7 +57,7 @@ const Login = () => {
 
 				<div className="row mb-3">
 					<label htmlFor="password" className="col-sm-2 col-form-label">
-						Password
+						Contraseña
 					</label>
 					<div>
 						<input
@@ -73,10 +73,10 @@ const Login = () => {
 
 				<div className="mb-3">
 					<button type="submit" className="btn btn-hotel" style={{ marginRight: "10px" }}>
-						Login
+						Iniciar Sesión
 					</button>
 					<span style={{ marginLeft: "10px" }}>
-						Don't' have an account yet?<Link to={"/register"}> Register</Link>
+						¿No tienes una cuenta aún?<Link to={"/register"}> Regístrate</Link>
 					</span>
 				</div>
 			</form>
