@@ -5,27 +5,45 @@ export const api = axios.create({
 })
 
 export const getHeader = () => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem("token");
+    if (!token) {
+        throw new Error("No se encontró token de autenticación");
+    }
     return {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
-    }
-}
+    };
+};
 
 /* Esta función agrega una nueva habitación a la base de datos */
 export async function addRoom(photo, roomType, roomPrice) {
-    const formData = new FormData()
-    formData.append("photo", photo)
-    formData.append("roomType", roomType)
-    formData.append("roomPrice", roomPrice)
+    try {
+        const formData = new FormData();
+        formData.append("photo", photo);
+        formData.append("roomType", roomType);
+        formData.append("roomPrice", roomPrice);
 
-    const response = await api.post("/rooms/add/new-room", formData,{
-        headers: getHeader()
-    })
-    if (response.status === 201) {
-        return true
-    } else {
-        return false
+        // Modificar los headers para manejar FormData correctamente
+        const headers = getHeader();
+        delete headers["Content-Type"]; // Permitir que axios establezca el boundary correcto para FormData
+
+        const response = await api.post("/rooms/add/new-room", formData, {
+            headers: headers
+        });
+
+        if (response.status === 201) {
+            return true;
+        }
+        return false;
+    } catch (error) {
+        if (error.response) {
+            // Error de respuesta del servidor
+            if (error.response.status === 401) {
+                throw new Error("No autorizado. Por favor inicie sesión nuevamente");
+            }
+            throw new Error(error.response.data.message || "Error al añadir habitación");
+        }
+        throw error;
     }
 }
 
@@ -61,14 +79,21 @@ export async function deleteRoom(roomId) {
 }
 /* Esta función actualiza una habitación */
 export async function updateRoom(roomId, roomData) {
-    const formData = new FormData()
-    formData.append("roomType", roomData.roomType)
-    formData.append("roomPrice", roomData.roomPrice)
-    formData.append("photo", roomData.photo)
-    const response = await api.put(`/rooms/update/${roomId}`, formData,{
-        headers: getHeader()
-    })
-    return response
+    try {
+        const headers = getHeader();
+        // Eliminar Content-Type para permitir que el navegador establezca el boundary correcto para FormData
+        delete headers["Content-Type"];
+
+        const response = await api.put(`/rooms/update/${roomId}`, roomData, {
+            headers: headers
+        });
+        return response;
+    } catch (error) {
+        if (error.response && error.response.data) {
+            throw new Error(error.response.data.message || "Error al actualizar la habitación");
+        }
+        throw new Error("Error de conexión al actualizar la habitación");
+    }
 }
 
 /* Esta función obtiene una habitación por el id */
